@@ -168,7 +168,7 @@ emr-scheduling/
 
 **[三維貨櫃裝箱系統](https://github.com/wutesta0101-hue/container-packing)** — 同一問題族的空間那一半:堆高機通道淨空約束下的三維裝箱。同一台堆高機、同一種可及性約束、相反的決策變數——那個專案決定**貨物放在哪**,這個專案決定**用什麼順序去拿**。
 
-**[Container Arrival Tracker](https://github.com/wutesta0101-hue/container-arrival-tracker)** — 零基礎設施的貨櫃到貨追蹤工具,串接倉庫、報關與採購三個部門。
+**[貨櫃追蹤器](https://github.com/wutesta0101-hue/container-arrival-tracker)** — 零基礎設施的貨櫃到貨追蹤工具,串接倉庫、報關與採購三個部門。
 
 ---
 
