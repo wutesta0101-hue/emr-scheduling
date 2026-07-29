@@ -97,7 +97,6 @@ $$\underbrace{20 \times 2.32}_{\text{貨架}} + \underbrace{20 \times 0.15}_{\te
 |---|---|
 | 檢視器 | Three.js r128(自刻 orbit controls)、原生 JS、單一檔案 |
 | 渲染 | 960 儲位以 InstancedMesh 繪製、貨架壓縮補間動畫、MediaRecorder 匯出 |
-| 實驗平台 | Alpine.js 前端、Node.js worker pool(最多 88 平行) |
 | 分析 | Hypervolume、Wilcoxon 符號檢定、參考點敏感度 |
 | 圖面 | AutoCAD(平面圖、立面圖) |
 
