@@ -85,7 +85,7 @@ $$\underbrace{20 \times 2.32}_{\text{貨架}} + \underbrace{20 \times 0.15}_{\te
 
 選擇由正規化走道成本與正規化逾期量的加權目標驅動;掃描權重即得 Pareto 前緣。前緣以 Hypervolume 比較,並跨情境以 Wilcoxon 符號檢定驗證。
 
-### 系統管線
+### 系統架構
 
 ![系統管線圖](docs/architecture.png)
 
