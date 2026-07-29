@@ -167,4 +167,4 @@ M.S. thesis work, Software Engineering & Management, National Kaohsiung Normal U
 
 A companion project, [container-packing](https://github.com/wutesta0101-hue/container-packing), solves the spatial half of the same family — 3D bin-packing under forklift aisle clearance constraints. Same forklift, same accessibility constraint, opposite decision variable: one decides *where things go*, the other decides *what order to reach them in*.
 
-**License** — code MIT, data and figures CC BY 4.0
+**License** — © 2026 Testa Wu. All rights reserved. Portfolio use only.
