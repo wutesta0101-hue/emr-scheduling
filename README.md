@@ -168,7 +168,7 @@ M.S. thesis work, Software Engineering & Management, National Kaohsiung Normal U
 ---
 ## Related
  
-**[3D Container Packing System](https://github.com/wutesta0101-hue/container-packing)** — the spatial half of the same family: 3D bin-packing under forklift aisle clearance constraints. Same forklift, same accessibility constraint, opposite decision variable — that project decides *where cargo goes*, this one decides *what order to reach it in*.
+**[3D Container Packing System](https://github.com/wutesta0101-hue/container-packing)** — Models the physical constraints of forklift operation and cargo stacking inside a shipping container.
  
 **[Container Arrival Tracker](https://github.com/wutesta0101-hue/container-arrival-tracker)** — zero-infrastructure arrival tracking for warehouse, customs, and procurement teams.
  
