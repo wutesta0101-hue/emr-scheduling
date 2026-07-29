@@ -128,7 +128,7 @@ git clone https://github.com/wutesta0101-hue/emr-scheduling.git
 
 ---
 
-## 輸入格式
+## 參數說明
 
 | 欄位 | 意義 |
 |---|---|
