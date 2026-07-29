@@ -172,4 +172,4 @@ emr-scheduling/
 
 ---
 
-**License** — © 2026 Testa Wu. All rights reserved. Portfolio use only.
+**授權** — © 2026 Testa Wu。保留所有權利。僅供作品展示用途。
