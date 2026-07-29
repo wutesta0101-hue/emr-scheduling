@@ -111,7 +111,7 @@ $$\underbrace{20 \times 2.32}_{\text{貨架}} + \underbrace{20 \times 0.15}_{\te
 git clone https://github.com/wutesta0101-hue/emr-scheduling.git
 ```
 
-用任何瀏覽器開啟 `viewer/emr_3d_viewer.html`,或直接使用[線上展示](https://wutesta0101-hue.github.io/emr-scheduling)。
+用任何瀏覽器開啟 `index.html`,或直接使用[線上展示](https://wutesta0101-hue.github.io/emr-scheduling)。
 
 **三十秒看懂重點:** 按「示範 · 分散序列」,再按「示範 · 集中序列」。同樣的棧板、同樣的儲位,只有服務順序不同。注意那條琥珀色的條。
 
@@ -146,8 +146,7 @@ git clone https://github.com/wutesta0101-hue/emr-scheduling.git
 
 ```
 emr-scheduling/
-├── viewer/
-│   └── emr_3d_viewer.html
+├── index.html
 ├── data/
 │   ├── best_pick_sequence_DHGA_M288_K21.csv
 │   └── best_pick_sequence_Greedy_M288_K21.csv
@@ -165,6 +164,12 @@ emr-scheduling/
 
 國立高雄師範大學 軟體工程與管理學系 碩士論文,2026。
 
-姊妹專案 [container-packing](https://github.com/wutesta0101-hue/container-packing) 處理同一問題族的空間那一半——堆高機通道淨空約束下的三維裝箱。同一台堆高機、同一種可及性約束、相反的決策變數:一個決定**東西放在哪**,另一個決定**用什麼順序去拿**。
+## 相關專案
 
-**授權** — 程式碼 MIT,資料與圖表 CC BY 4.0
+**[三維貨櫃裝箱系統](https://github.com/wutesta0101-hue/container-packing)** — 同一問題族的空間那一半:堆高機通道淨空約束下的三維裝箱。同一台堆高機、同一種可及性約束、相反的決策變數——那個專案決定**貨物放在哪**,這個專案決定**用什麼順序去拿**。
+
+**[Container Arrival Tracker](https://github.com/wutesta0101-hue/container-arrival-tracker)** — 零基礎設施的貨櫃到貨追蹤工具,串接倉庫、報關與採購三個部門。
+
+---
+
+**License** — © 2026 Testa Wu. All rights reserved. Portfolio use only.
