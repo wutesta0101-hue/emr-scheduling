@@ -58,7 +58,7 @@ $$\underbrace{20}_{\text{貨架}} \times \underbrace{2}_{\text{面}} \times \und
 
 $$\underbrace{20 \times 2.32}_{\text{貨架}} + \underbrace{20 \times 0.15}_{\text{滑行餘隙}} + \underbrace{5.30}_{\text{開啟走道}} = 54.70 \text{ m}$$
 
-平面圖解析 `r` 與 `f`,其餘三個維度存在於貨架面上:
+立面圖解析 `r` 與 `f`,其餘三個維度存在於貨架面上:
 
 ![貨架立面圖](docs/elevation.png)
 
