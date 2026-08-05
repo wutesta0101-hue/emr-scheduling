@@ -97,7 +97,7 @@ Selection is driven by a weighted objective over normalized aisle cost and norma
 |---|---|
 | Viewer | Three.js r128 (custom orbit controls), vanilla JS, single file |
 | Rendering | InstancedMesh for 960 slots, tweened rack compression, MediaRecorder export |
-| Experiment platform | Node.js worker pool (up to 88 parallel),Javascrip |
+| Experiment platform | Node.js worker pool (up to 88 parallel), Javascrip |
 | Analysis | Hypervolume, Wilcoxon signed-rank, reference-point sensitivity |
 | Drawings | AutoCAD (plan, elevation) |
 
