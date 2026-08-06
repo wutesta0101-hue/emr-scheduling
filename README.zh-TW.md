@@ -130,6 +130,8 @@ while g < G and stall < G_stall:
 return σ* ← argmin score(σ; X), σ ∈ P⁽ᵍ⁾
 ```
 
+---
+
 ### 系統架構
 
 ![系統管線圖](docs/architecture.png)
