@@ -66,6 +66,8 @@ Three rows of 2.65 m, each split into two 1.325 m positions, stacked four levels
 
 ![Slot addressing in the viewer](docs/slot_addressing.png)
 
+---
+
 ### Cost model — derived from Linde E25 specifications
 
 | Motion | Rated speed | Derived coefficient |
@@ -76,6 +78,8 @@ Three rows of 2.65 m, each split into two 1.325 m positions, stacked four levels
 | Rack traverse | 4 m/min | $t_{aisle} = 1.325$ min |
 
 Pallet cycle time is the sum of these plus a fixed handling term. No coefficient is tuned against observed data — the model predicts the measurements rather than reproducing them.
+
+---
 
 ### Objective function
 
@@ -90,11 +94,15 @@ $$\min_{\sigma \in \text{Perm}(P(X))} \text{score}(\sigma; X) = \alpha \cdot \wi
 
 Sweeping all 36 combinations of preference weights $(\alpha, \gamma)$ traces out the bi-objective Pareto front.
 
+---
+
 ### Algorithm — DHGA
 
 A dual-stage hybrid genetic algorithm over permutation encodings of the service sequence. Standard GA machinery — tournament selection, order crossover, elitism — with one addition that accounts for the performance gap:
 
 **Stall detection with greedy injection.** When the best objective value fails to improve for $G_{stall}$ generations, a fraction of the non-elite population is replaced by solutions built from a greedy aisle-grouping heuristic. This re-seeds diversity in the region of the search space that matters — sequences that already cluster picks by aisle — instead of restarting blindly.
+
+Selection is driven by a weighted objective over normalized aisle cost and normalized tardiness; sweeping the weighting produces the Pareto front. Fronts are compared by hypervolume and tested across scenarios with a Wilcoxon signed-rank test.
 
 ```text
 Initialize:
@@ -122,7 +130,7 @@ while g < G and stall < G_stall:
 return σ* ← argmin score(σ; X), σ ∈ P⁽ᵍ⁾
 ```
 
-Selection is driven by a weighted objective over normalized aisle cost and normalized tardiness; sweeping the weighting produces the Pareto front. Fronts are compared by hypervolume and tested across scenarios with a Wilcoxon signed-rank test.
+---
 
 ### Pipeline
 
