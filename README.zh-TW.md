@@ -104,7 +104,7 @@ $$\min_{\sigma \in \text{Perm}(P(X))} \text{score}(\sigma; X) = \alpha \cdot \wi
 
 選擇由正規化走道成本與正規化逾期量的加權目標驅動;掃描權重即得 Pareto 前緣。前緣以 Hypervolume 比較,並跨情境以 Wilcoxon 符號檢定驗證。
 
-```
+```text
 Initialize:
   σ_greedy ← Greedy(P(X))
   P⁽⁰⁾ ← {σ_greedy} ∪ {σ_greedy 之 swap mutation 擾動版本}
@@ -154,7 +154,7 @@ return σ* ← argmin score(σ; X), σ ∈ P⁽ᵍ⁾
 
 免建置、免伺服器、免安裝。
 
-```
+```bash
 git clone https://github.com/wutesta0101-hue/emr-scheduling.git
 ```
 
@@ -191,7 +191,7 @@ git clone https://github.com/wutesta0101-hue/emr-scheduling.git
 
 場域尺寸自資料推斷——貨架數、行數、層數與每格儲位數,取自檔案中出現過的最大索引。
 
-```
+```text
 emr-scheduling/
 ├── index.html
 ├── data/
@@ -210,6 +210,8 @@ emr-scheduling/
 ## 3D可視化及來源依據
 
 國立高雄師範大學 軟體工程與管理學系 碩士論文,2026。
+
+---
 
 ## 相關專案
 
