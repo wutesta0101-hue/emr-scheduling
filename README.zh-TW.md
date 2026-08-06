@@ -68,7 +68,7 @@ $$\underbrace{20 \times 2.32}_{\text{貨架}} + \underbrace{20 \times 0.15}_{\te
 
 ---
 
-## 成本模型 — 由 Linde E25 規格推導
+### 成本模型 — 由 Linde E25 規格推導
 
 | 動作 | 額定速度 | 推導係數 |
 |---|---|---|
@@ -81,7 +81,7 @@ $$\underbrace{20 \times 2.32}_{\text{貨架}} + \underbrace{20 \times 0.15}_{\te
 
 ---
 
-## 目標函數
+### 目標函數
 
 $$\min_{\sigma \in \text{Perm}(P(X))} \text{score}(\sigma; X) = \alpha \cdot \widehat{Z}_{tard}(\sigma) + \gamma \cdot \widehat{T}_{aisle}(\sigma; X)$$
 
@@ -93,6 +93,8 @@ $$\min_{\sigma \in \text{Perm}(P(X))} \text{score}(\sigma; X) = \alpha \cdot \wi
 | $\widehat{T}_{aisle}(\sigma; X)$ | 正規化走道開啟時間（$\in [0,1]$）,衡量序列 $\sigma$ 於情境 $X$ 下所需之走道切換總成本 |
 
 掃描 $(\alpha, \gamma)$ 之 36 組偏好權重組合,即得雙目標之 Pareto 前緣。
+
+---
 
 ### 演算法 — DHGA
 
