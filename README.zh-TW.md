@@ -65,6 +65,7 @@ $$\underbrace{20 \times 2.32}_{\text{貨架}} + \underbrace{20 \times 0.15}_{\te
 三行各 2.65 m,每行分為兩個 1.325 m 的儲位,垂直堆疊四層各 1.66 m。圖中標示的儲位為 **(13, A, 1, 3, 1)**——即3D視圖顯示的 `13A 1/3/1`:
 
 ![檢視器中的儲位定址](docs/slot_addressing.png)
+
 ---
 
 ## 成本模型 — 由 Linde E25 規格推導
@@ -77,6 +78,8 @@ $$\underbrace{20 \times 2.32}_{\text{貨架}} + \underbrace{20 \times 0.15}_{\te
 | 貨架平移 | 4 m/min | $t_{aisle} = 1.325$ min |
 
 單棧板作業時間為上述各項加上固定作業時間，每一個值都來自技術文件。
+
+---
 
 ## 目標函數
 
