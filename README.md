@@ -79,7 +79,7 @@ Pallet cycle time is the sum of these plus a fixed handling term. No coefficient
 
 ### Objective function
 
-$$\Large \min_{\sigma \in \text{Perm}(P(X))} \text{score}(\sigma; X) = \alpha \cdot \widehat{Z}_{tard}(\sigma) + \gamma \cdot \widehat{T}_{aisle}(\sigma; X)$$
+$$\min_{\sigma \in \text{Perm}(P(X))} \text{score}(\sigma; X) = \alpha \cdot \widehat{Z}_{tard}(\sigma) + \gamma \cdot \widehat{T}_{aisle}(\sigma; X)$$
 
 | Symbol | Meaning |
 |---|---|
