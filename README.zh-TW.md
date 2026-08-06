@@ -77,6 +77,19 @@ $$\underbrace{20 \times 2.32}_{\text{貨架}} + \underbrace{20 \times 0.15}_{\te
 
 單棧板作業時間為上述各項加上固定作業時間，每一個值都來自技術文件。
 
+### 目標函數
+
+$$\min_{\sigma \in \text{Perm}(P(X))} \text{score}(\sigma; X) = \alpha \cdot \widehat{Z}_{tard}(\sigma) + \gamma \cdot \widehat{T}_{aisle}(\sigma; X)$$
+
+| 符號 | 代表意義 |
+|---|---|
+| $\alpha$ | 加權逾期項的偏好權重,值越大代表決策者越重視訂單準時性 |
+| $\widehat{Z}_{tard}(\sigma)$ | 正規化加權逾期總量（$\in [0,1]$）,衡量序列 $\sigma$ 使各訂單超過截止時間所造成的加權延遲成本 |
+| $\gamma$ | 走道成本項的偏好權重,值越大代表決策者越重視走道切換效率 |
+| $\widehat{T}_{aisle}(\sigma; X)$ | 正規化走道開啟時間（$\in [0,1]$）,衡量序列 $\sigma$ 於情境 $X$ 下所需之走道切換總成本 |
+
+掃描 $(\alpha, \gamma)$ 之 36 組偏好權重組合,即得雙目標之 Pareto 前緣。
+
 ### 演算法 — DHGA
 
 以服務序列的排列編碼為基礎的雙階段混合遺傳演算法。標準 GA 機制(競賽選擇、順序交配、菁英保留)之外,加上一項解釋了效能差距的設計:
@@ -84,6 +97,32 @@ $$\underbrace{20 \times 2.32}_{\text{貨架}} + \underbrace{20 \times 0.15}_{\te
 **停滯偵測與 Greedy 注入。** 當最佳目標值連續 $G_{stall}$ 代未改善時,以走道分群啟發式建構的解替換部分非菁英個體。這讓多樣性在**真正重要的搜尋區域**重新播種——也就是已經依走道群聚的序列——而不是盲目重啟。
 
 選擇由正規化走道成本與正規化逾期量的加權目標驅動;掃描權重即得 Pareto 前緣。前緣以 Hypervolume 比較,並跨情境以 Wilcoxon 符號檢定驗證。
+
+```
+Initialize:
+  σ_greedy ← Greedy(P(X))
+  P⁽⁰⁾ ← {σ_greedy} ∪ {σ_greedy 之 swap mutation 擾動版本}
+  stall ← 0
+
+while g < G and stall < G_stall:
+  對 P⁽ᵍ⁾ 中每個個體評估 score(σ; X)
+  elite ← score 最小之前 E 個個體
+
+  if stall ≥ G_stall:                     # 動態 Greedy 注入
+      以 {σ_greedy} ∪ {擾動版本} 取代非菁英個體
+      stall ← 0
+
+  for 其餘族群位置:
+      parent1, parent2 ← TournamentSelect(P⁽ᵍ⁾)
+      child ← OrderCrossover(parent1, parent2)
+      child ← SwapMutation(child)
+
+  P⁽ᵍ⁺¹⁾ ← elite ∪ 新產生之子代
+  stall ← 若最佳 score 未改善則 +1,否則歸零
+  g ← g + 1
+
+return σ* ← argmin score(σ; X), σ ∈ P⁽ᵍ⁾
+```
 
 ### 系統架構
 
