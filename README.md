@@ -77,11 +77,50 @@ Three rows of 2.65 m, each split into two 1.325 m positions, stacked four levels
 
 Pallet cycle time is the sum of these plus a fixed handling term. No coefficient is tuned against observed data — the model predicts the measurements rather than reproducing them.
 
+### Objective function
+
+$$\Large \min_{\sigma \in \text{Perm}(P(X))} \text{score}(\sigma; X) = \alpha \cdot \widehat{Z}_{tard}(\sigma) + \gamma \cdot \widehat{T}_{aisle}(\sigma; X)$$
+
+| Symbol | Meaning |
+|---|---|
+| $\alpha$ | Preference weight on the weighted-tardiness term — the larger it is, the more the decision maker prioritizes order punctuality |
+| $\widehat{Z}_{tard}(\sigma)$ | Normalized weighted tardiness ($\in [0,1]$), capturing the weighted delay cost incurred when sequence $\sigma$ causes orders to miss their due dates |
+| $\gamma$ | Preference weight on the aisle-cost term — the larger it is, the more the decision maker prioritizes aisle-switching efficiency |
+| $\widehat{T}_{aisle}(\sigma; X)$ | Normalized aisle-opening time ($\in [0,1]$), capturing the total aisle-switching cost that sequence $\sigma$ incurs under scenario $X$ |
+
+Sweeping all 36 combinations of preference weights $(\alpha, \gamma)$ traces out the bi-objective Pareto front.
+
 ### Algorithm — DHGA
 
 A dual-stage hybrid genetic algorithm over permutation encodings of the service sequence. Standard GA machinery — tournament selection, order crossover, elitism — with one addition that accounts for the performance gap:
 
 **Stall detection with greedy injection.** When the best objective value fails to improve for $G_{stall}$ generations, a fraction of the non-elite population is replaced by solutions built from a greedy aisle-grouping heuristic. This re-seeds diversity in the region of the search space that matters — sequences that already cluster picks by aisle — instead of restarting blindly.
+
+```text
+Initialize:
+  σ_greedy ← Greedy(P(X))
+  P⁽⁰⁾ ← {σ_greedy} ∪ {swap-mutation perturbations of σ_greedy}
+  stall ← 0
+
+while g < G and stall < G_stall:
+  Evaluate score(σ; X) for every individual in P⁽ᵍ⁾
+  elite ← top E individuals by score
+
+  if stall ≥ G_stall:                     # dynamic greedy injection
+      Replace non-elite individuals with {σ_greedy} ∪ {perturbations}
+      stall ← 0
+
+  for remaining population slots:
+      parent1, parent2 ← TournamentSelect(P⁽ᵍ⁾)
+      child ← OrderCrossover(parent1, parent2)
+      child ← SwapMutation(child)
+
+  P⁽ᵍ⁺¹⁾ ← elite ∪ newly generated offspring
+  stall ← stall + 1 if best score did not improve, else 0
+  g ← g + 1
+
+return σ* ← argmin score(σ; X), σ ∈ P⁽ᵍ⁾
+```
 
 Selection is driven by a weighted objective over normalized aisle cost and normalized tardiness; sweeping the weighting produces the Pareto front. Fronts are compared by hypervolume and tested across scenarios with a Wilcoxon signed-rank test.
 
