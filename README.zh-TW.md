@@ -162,7 +162,7 @@ git clone https://github.com/wutesta0101-hue/emr-scheduling.git
 
 建議先按「示範 · 分散序列」，再按「示範 · 集中序列」。
 
-**用真實解:** 先載入 `data/best_pick_sequence_Greedy_M288_K21.csv`,再載入 DHGA 那份。堆高機會停在 I/O 點乾等貨架滑開——成本條上的琥珀色段落,就是那段等待在累積。
+**用真實解:** 先載入 `data/best_pick_sequence_Greedy_M288_K21.csv`,再載入 DHGA 那份。堆高機會停在 I/O 點等待貨架滑開——成本條上的琥珀色段落,就是等待在逐步累積。
 
 ### 操作
 
